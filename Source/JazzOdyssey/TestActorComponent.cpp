@@ -38,8 +38,18 @@ void UTestActorComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 	if (BeatCount >= BeatFrequency)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Time is %s"), *CurrentTimeString);
-		BeatCountOld = GetWorld()->GetTimeSeconds();
+		if (BarCount == 3)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("TICK. Time is %s"), *CurrentTimeString);
+			BeatCountOld = GetWorld()->GetTimeSeconds();
+			BarCount = 0;
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("TOCK. Time is %s"), *CurrentTimeString);
+			BeatCountOld = GetWorld()->GetTimeSeconds();
+			BarCount++;
+		}
 	}
 
 	// ...

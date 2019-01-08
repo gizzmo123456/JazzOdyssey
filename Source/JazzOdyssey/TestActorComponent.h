@@ -28,4 +28,5 @@ public:
 		float BeatFrequency = 0.5f;
 
 	float BeatCountOld = 0.0f;
+	int32 BarCount = 3;
 };
